@@ -6,6 +6,11 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 26px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -17,12 +22,12 @@
                     <td class="auto-style33"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style34">Nombre de localidad</td>
-                    <td class="auto-style35">
+                    <td class="auto-style1">Nombre de localidad</td>
+                    <td class="auto-style1">
                         <asp:TextBox ID="txtLocalidad" runat="server" Width="266px"></asp:TextBox>
                     </td>
-                    <td class="auto-style36">
-                        <asp:Label ID="lbMensajeIngLocalidad" runat="server"  Width="266px"></asp:Label>
+                    <td class="auto-style1">
+                        <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="txtLocalidad">Debe ingresar una localidad.</asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
