@@ -13,5 +13,18 @@ namespace TP3
         {
 
         }
+
+        protected void btnGuardarLocalidad_Click(object sender, EventArgs e)
+        {
+            if(txtLocalidad.Text.Trim() == "")
+            {
+                lbMensajeIngLocalidad.Text = "Por favor ingrese una localidad";
+            }
+            else
+            {
+                lbMensajeIngLocalidad.Text = "";
+                ddlLocalidades.Items.Add(txtLocalidad.Text);
+            }
+        }
     }
 }
