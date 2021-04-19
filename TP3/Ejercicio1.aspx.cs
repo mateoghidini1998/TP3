@@ -16,5 +16,15 @@ namespace TP3
         {
             ddlLocalidades.Items.Add(txtLocalidad.Text);
         }
+
+        protected void btnGuardarUsuario_Click(object sender, EventArgs e)
+        {
+            lblMensaje2.Text ="Se guardo al usuario con exito";
+        }
+
+        protected void btnInicioAspx_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

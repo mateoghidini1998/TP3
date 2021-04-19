@@ -3,20 +3,8 @@
 <!DOCTYPE html>
 <script runat="server">
 
-    protected void btnInicioAspx_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Inicio.aspx");
-    }
 
-    protected void btnGuardarUsuario_Click(object sender, EventArgs e)
-    {
-        lblMensaje2.Text("Se guardo al usuario con exito");
-    }
 
-    protected void btnGuardarLocalidad_Click(object sender, EventArgs e)
-    {
-
-    }
 </script>
 
 
@@ -66,7 +54,7 @@
                         <asp:TextBox ID="txtNombre" runat="server" Width="266px"></asp:TextBox>
                     </td>
                     <td class="auto-style36">
-                        <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtNombre" ErrorMessage="RequiredFieldValidator" ValidationGroup="Grupo1">Ingrese nombre de usuario</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtNombre" ErrorMessage="Ingrese nombre de usuario" ValidationGroup="Grupo1"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -75,7 +63,7 @@
                         <asp:TextBox ID="txtContrasenia1" runat="server" Width="266px"></asp:TextBox>
                     </td>
                     <td class="auto-style36">
-                        <asp:RequiredFieldValidator ID="rfvContrasenia" runat="server" ControlToValidate="txtContrasenia1" ErrorMessage="RequiredFieldValidator" ValidationGroup="Grupo1">Ingrese una contraseña</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvContrasenia" runat="server" ControlToValidate="txtContrasenia1" ErrorMessage="Ingrese una contraseña" ValidationGroup="Grupo1"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -84,8 +72,8 @@
                         <asp:TextBox ID="txtContrasenia2" runat="server" Width="266px"></asp:TextBox>
                     </td>
                     <td class="auto-style36">
-                        <asp:CompareValidator ID="cvContrasenia" runat="server" ControlToCompare="txtContrasenia1" ControlToValidate="txtContrasenia2" ErrorMessage="CompareValidator" Operator="GreaterThan" ValidationGroup="Grupo1">Contraseña Incorrecta</asp:CompareValidator>
-                        <asp:RequiredFieldValidator ID="rfvContrasenia2" runat="server" ControlToValidate="txtContrasenia2" ErrorMessage="RequiredFieldValidator" ValidationGroup="Grupo1">Ingrese nuevamente la contrasenia</asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="cvContrasenia" runat="server" ControlToCompare="txtContrasenia1" ControlToValidate="txtContrasenia2" ErrorMessage="Contraseña Incorrecta" ValidationGroup="Grupo1"></asp:CompareValidator>
+                        <asp:RequiredFieldValidator ID="rfvContrasenia2" runat="server" ControlToValidate="txtContrasenia2" ErrorMessage="Ingrese nuevamente la contrasenia" ValidationGroup="Grupo1"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -94,7 +82,7 @@
                         <asp:TextBox ID="txtCorreoElectronico" runat="server" Width="266px"></asp:TextBox>
                     </td>
                     <td class="auto-style36">
-                        <asp:RequiredFieldValidator ID="rfvMail" runat="server" ControlToValidate="txtCorreoElectronico" ErrorMessage="RequiredFieldValidator" ValidationGroup="Grupo1">Debe ingresar un correo electronico</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="revCorreo" runat="server" ControlToValidate="txtCorreoElectronico" ErrorMessage="Debe ingresar un correo electronico" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="Grupo1"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -103,7 +91,7 @@
                         <asp:TextBox ID="txtCP" runat="server" Width="266px"></asp:TextBox>
                     </td>
                     <td class="auto-style1">
-                        <asp:RequiredFieldValidator ID="rfvCP" runat="server" ControlToValidate="txtCP" ErrorMessage="RequiredFieldValidator" ValidationGroup="Grupo1">Ingrese un codigo postal</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="revCP" runat="server" ControlToValidate="txtCP" ErrorMessage="Ingrese un codigo postal" ValidationExpression="^\d{4}$" ValidationGroup="Grupo1"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -113,13 +101,13 @@
                         </asp:DropDownList>
                     </td>
                     <td class="auto-style36">
-                        <asp:RequiredFieldValidator ID="rfvLocalidades" runat="server" ControlToValidate="ddlLocalidades" ErrorMessage="RequiredFieldValidator" ValidationGroup="Grupo1">Seleccione una localidad</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvLocalidades" runat="server" ControlToValidate="ddlLocalidades" ErrorMessage="Seleccione una localidad" ValidationGroup="Grupo1"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style40"></td>
                     <td class="auto-style41">
-                        <asp:Button ID="btnGuardarUsuario" runat="server" Text="Guardar Usuario" OnClick="btnGuardarUsuario_Click" />
+                        <asp:Button ID="btnGuardarUsuario" runat="server" Text="Guardar Usuario" OnClick="btnGuardarUsuario_Click" ValidationGroup="Grupo1" />
                     </td>
                     <td class="auto-style42">
                         <asp:Label ID="lblMensaje2" runat="server"></asp:Label>
